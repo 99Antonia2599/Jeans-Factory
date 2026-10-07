@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<title>Herzlich Willkommen – Herbst</title>
+<style>
+  @font-face {
+    font-family: 'Caveat';
+    src: url('../assets/fonts/caveat-latin.woff2') format('woff2');
+    font-weight: 400 700;
+    font-display: block;
+  }
+  @font-face {
+    font-family: 'Caveat';
+    src: url('../assets/fonts/caveat-latin-ext.woff2') format('woff2');
+    font-weight: 400 700;
+    unicode-range: U+0100-02AF, U+0304, U+0308, U+0329, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+    font-display: block;
+  }
+  @font-face {
+    font-family: 'Oswald';
+    src: url('../assets/fonts/oswald-latin.woff2') format('woff2');
+    font-weight: 200 700;
+    font-display: block;
+  }
+
+  @page { size: A4 portrait; margin: 0; }
+  html, body { margin: 0; padding: 0; }
+  body {
+    width: 210mm; height: 297mm;
+    overflow: hidden;
+    position: relative;
+    -webkit-print-color-adjust: exact; print-color-adjust: exact;
+    background:
+      radial-gradient(ellipse at 50% 42%, rgba(255,255,255,.55) 0%, rgba(255,255,255,0) 60%),
+      radial-gradient(ellipse at 0% 0%, rgba(205,110,40,.18) 0%, rgba(205,110,40,0) 45%),
+      radial-gradient(ellipse at 100% 100%, rgba(160,60,30,.18) 0%, rgba(160,60,30,0) 45%),
+      linear-gradient(170deg, #f8efdf 0%, #f3e4cb 55%, #ecd8ba 100%);
+    font-family: 'Caveat', cursive;
+    color: #3b2314;
+  }
+
+  /* feiner Rahmen in Herbstfarbe */
+  .frame {
+    position: absolute; inset: 9mm;
+    border: 0.6mm solid rgba(150, 70, 30, .55);
+    border-radius: 3mm;
+  }
+  .frame::after {
+    content: ""; position: absolute; inset: 1.6mm;
+    border: 0.25mm solid rgba(150, 70, 30, .35);
+    border-radius: 2mm;
+  }
+
+  .content {
+    position: absolute; inset: 0;
+    z-index: 1;
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+    text-align: center;
+    padding: 0 18mm;
+    box-sizing: border-box;
+  }
+
+  .eyebrow {
+    font-family: 'Oswald', sans-serif;
+    font-weight: 400;
+    letter-spacing: .32em;
+    text-transform: uppercase;
+    font-size: 11pt;
+    color: #a6481f;
+    margin: 0 0 6mm;
+  }
+
+  h1 {
+    margin: 0;
+    font-weight: 700;
+    line-height: .98;
+    text-shadow: 0 1.2mm 2.5mm rgba(80, 40, 10, .12);
+  }
+  .l1 { font-size: 86pt; display: block; }
+  .l2 { font-size: 92pt; display: block; margin-top: 2mm; }
+  .l3 { font-size: 46pt; display: block; margin: 7mm 0 1mm; font-weight: 400; color: #7a4a2a; }
+  .l4 { font-size: 96pt; display: block; color: #8c2f12; }
+
+  .divider {
+    display: flex; align-items: center; gap: 5mm;
+    margin: 10mm 0 9mm;
+    color: #b85a21;
+  }
+  .divider span.line {
+    display: block; width: 38mm; height: .5mm;
+    background: linear-gradient(90deg, rgba(184,90,33,0), #b85a21, rgba(184,90,33,0));
+  }
+  .divider svg { width: 9mm; height: 9mm; }
+
+  .logo img { width: 78mm; display: block; }
+
+  .claim {
+    font-family: 'Oswald', sans-serif;
+    font-weight: 300;
+    letter-spacing: .28em;
+    text-transform: uppercase;
+    font-size: 9.5pt;
+    color: #7a4a2a;
+    margin-top: 7mm;
+  }
+
+  /* Blätter */
+  .leaf {
+    position: absolute;
+    z-index: 0;
+    filter: drop-shadow(0 1.5mm 1.8mm rgba(60, 25, 5, .22));
+  }
+  .leaf svg { width: 100%; height: 100%; display: block; overflow: visible; }
+</style>
+</head>
+<body>
+
+<svg width="0" height="0" style="position:absolute">
+  <defs>
+    <!-- Ahornblatt -->
+    <symbol id="maple" viewBox="-50 -50 100 100">
+      <path d="M0,-48 L7,-32 Q15,-36 22,-42 L19,-24 Q30,-28 40,-32 L31,-16 Q42,-14 48,-6 L30,-2 Q38,8 42,20 L22,12 Q26,26 22,38 L10,24 L4,34 L0,48 L-4,34 L-10,24 L-22,38 Q-26,26 -22,12 L-42,20 Q-38,8 -30,-2 L-48,-6 Q-42,-14 -31,-16 L-40,-32 Q-30,-28 -19,-24 L-22,-42 Q-15,-36 -7,-32 Z"/>
+      <path d="M0,46 L0,-40 M0,0 L-30,-20 M0,0 L30,-20 M0,0 L-36,8 M0,0 L36,8 M0,0 L-18,30 M0,0 L18,30" fill="none" stroke="rgba(60,20,5,.35)" stroke-width="1.6" stroke-linecap="round"/>
+    </symbol>
+    <!-- Eichenblatt -->
+    <symbol id="oak" viewBox="-30 -50 60 100">
+      <path d="M0,-48 C8,-44 14,-40 12,-32 C20,-32 24,-26 18,-20 C26,-18 28,-10 20,-6 C28,-2 28,8 20,10 C26,14 24,24 16,24 C20,32 12,40 4,36 C4,42 2,46 0,50 C-2,46 -4,42 -4,36 C-12,40 -20,32 -16,24 C-24,24 -26,14 -20,10 C-28,8 -28,-2 -20,-6 C-28,-10 -26,-18 -18,-20 C-24,-26 -20,-32 -12,-32 C-14,-40 -8,-44 0,-48 Z"/>
+      <path d="M0,48 L0,-44 M0,-26 L12,-30 M0,-12 L18,-16 M0,2 L20,2 M0,16 L16,20 M0,-26 L-12,-30 M0,-12 L-18,-16 M0,2 L-20,2 M0,16 L-16,20" fill="none" stroke="rgba(60,20,5,.32)" stroke-width="1.5" stroke-linecap="round"/>
+    </symbol>
+    <!-- Birkenblatt / einfaches Blatt -->
+    <symbol id="simple" viewBox="-30 -50 60 100">
+      <path d="M0,-48 C26,-30 32,10 0,50 C-32,10 -26,-30 0,-48 Z"/>
+      <path d="M0,50 L0,-42 M0,-20 L14,-10 M0,-4 L18,8 M0,14 L12,24 M0,-20 L-14,-10 M0,-4 L-18,8 M0,14 L-12,24" fill="none" stroke="rgba(60,20,5,.32)" stroke-width="1.5" stroke-linecap="round"/>
+    </symbol>
+    <!-- Eichel -->
+    <symbol id="acorn" viewBox="-20 -30 40 60">
+      <path d="M-16,-6 C-16,-20 16,-20 16,-6 Z" fill="#5a3418"/>
+      <path d="M-14,-6 C-14,16 -6,28 0,30 C6,28 14,16 14,-6 Z" fill="#b8742f"/>
+      <rect x="-2" y="-26" width="4" height="8" rx="2" fill="#5a3418"/>
+    </symbol>
+  </defs>
+</svg>
+
+<div class="frame"></div>
+
+<!-- Blätter oben links -->
+<div class="leaf" style="left:4mm; top:3mm; width:46mm; height:46mm; transform:rotate(-28deg)"><svg><use href="#maple" fill="#c6391f"/></svg></div>
+<div class="leaf" style="left:36mm; top:-2mm; width:34mm; height:34mm; transform:rotate(22deg)"><svg><use href="#maple" fill="#e67e22"/></svg></div>
+<div class="leaf" style="left:12mm; top:40mm; width:20mm; height:34mm; transform:rotate(-70deg)"><svg><use href="#oak" fill="#b0521d"/></svg></div>
+<div class="leaf" style="left:60mm; top:12mm; width:14mm; height:24mm; transform:rotate(48deg)"><svg><use href="#simple" fill="#e9b949"/></svg></div>
+<div class="leaf" style="left:2mm; top:66mm; width:12mm; height:20mm; transform:rotate(-15deg)"><svg><use href="#simple" fill="#d9772a"/></svg></div>
+<div class="leaf" style="left:40mm; top:38mm; width:9mm; height:14mm; transform:rotate(30deg)"><svg><use href="#acorn"/></svg></div>
+
+<!-- Blätter oben rechts (kleiner) -->
+<div class="leaf" style="right:8mm; top:6mm; width:26mm; height:26mm; transform:rotate(35deg)"><svg><use href="#maple" fill="#d9772a"/></svg></div>
+<div class="leaf" style="right:28mm; top:22mm; width:12mm; height:20mm; transform:rotate(-40deg)"><svg><use href="#simple" fill="#c6391f"/></svg></div>
+
+<!-- Blätter unten rechts -->
+<div class="leaf" style="right:2mm; bottom:4mm; width:50mm; height:50mm; transform:rotate(155deg)"><svg><use href="#maple" fill="#a9341a"/></svg></div>
+<div class="leaf" style="right:40mm; bottom:-4mm; width:34mm; height:34mm; transform:rotate(-160deg)"><svg><use href="#maple" fill="#e9a23b"/></svg></div>
+<div class="leaf" style="right:28mm; bottom:34mm; width:20mm; height:34mm; transform:rotate(120deg)"><svg><use href="#oak" fill="#c75a1e"/></svg></div>
+<div class="leaf" style="right:66mm; bottom:8mm; width:14mm; height:24mm; transform:rotate(-125deg)"><svg><use href="#simple" fill="#d9772a"/></svg></div>
+<div class="leaf" style="right:6mm; bottom:62mm; width:12mm; height:20mm; transform:rotate(170deg)"><svg><use href="#simple" fill="#e9b949"/></svg></div>
+<div class="leaf" style="right:52mm; bottom:30mm; width:9mm; height:14mm; transform:rotate(-20deg)"><svg><use href="#acorn"/></svg></div>
+
+<!-- Blätter unten links (kleiner) -->
+<div class="leaf" style="left:8mm; bottom:10mm; width:24mm; height:24mm; transform:rotate(-150deg)"><svg><use href="#maple" fill="#e67e22"/></svg></div>
+<div class="leaf" style="left:30mm; bottom:22mm; width:11mm; height:19mm; transform:rotate(140deg)"><svg><use href="#simple" fill="#a9341a"/></svg></div>
+
+<!-- ein paar fallende Blätter in der Mitte -->
+<div class="leaf" style="left:168mm; top:96mm; width:9mm; height:15mm; transform:rotate(60deg); opacity:.85"><svg><use href="#simple" fill="#e9a23b"/></svg></div>
+<div class="leaf" style="left:24mm; top:128mm; width:8mm; height:14mm; transform:rotate(-50deg); opacity:.8"><svg><use href="#simple" fill="#c6391f"/></svg></div>
+<div class="leaf" style="left:176mm; top:150mm; width:8mm; height:13mm; transform:rotate(15deg); opacity:.8"><svg><use href="#simple" fill="#d9772a"/></svg></div>
+
+<div class="content">
+  <p class="eyebrow">Schön, dass du da bist</p>
+  <h1>
+    <span class="l1">Herzlich</span>
+    <span class="l2">Willkommen</span>
+    <span class="l3">in der</span>
+    <span class="l4">Jeans Factory</span>
+  </h1>
+
+  <div class="divider">
+    <span class="line"></span>
+    <svg viewBox="-50 -50 100 100"><use href="#maple" fill="#b85a21"/></svg>
+    <span class="line"></span>
+  </div>
+
+  <div class="logo"><img src="logo-jeansfactory-dunkel.png" alt="Jeans Factory – for every body"></div>
+  <p class="claim">Keplerstraße 24 · Albstadt</p>
+</div>
+
+</body>
+</html>
