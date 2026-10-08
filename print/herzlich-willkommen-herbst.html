@@ -31,10 +31,7 @@
     overflow: hidden;
     position: relative;
     -webkit-print-color-adjust: exact; print-color-adjust: exact;
-    background:
-      radial-gradient(ellipse at 0% 0%, rgba(205,110,40,.07) 0%, rgba(205,110,40,0) 40%),
-      radial-gradient(ellipse at 100% 100%, rgba(160,60,30,.07) 0%, rgba(160,60,30,0) 40%),
-      linear-gradient(170deg, #fffdf8 0%, #fdf8ee 60%, #faf3e4 100%);
+    background: #fdf8ee;
     font-family: 'Caveat', cursive;
     color: #3b2314;
   }
@@ -42,12 +39,12 @@
   /* feiner Rahmen in Herbstfarbe */
   .frame {
     position: absolute; inset: 9mm;
-    border: 0.6mm solid rgba(150, 70, 30, .55);
+    border: 0.6mm solid #c08a6a;
     border-radius: 3mm;
   }
   .frame::after {
     content: ""; position: absolute; inset: 1.6mm;
-    border: 0.25mm solid rgba(150, 70, 30, .35);
+    border: 0.25mm solid #d6b39c;
     border-radius: 2mm;
   }
 
@@ -74,7 +71,6 @@
     margin: 0;
     font-weight: 700;
     line-height: .98;
-    text-shadow: 0 1.2mm 2.5mm rgba(80, 40, 10, .12);
   }
   .l1 { font-size: 96pt; display: block; }
   .l2 { font-size: 102pt; display: block; margin-top: 3mm; }
@@ -88,7 +84,7 @@
   }
   .divider span.line {
     display: block; width: 38mm; height: .5mm;
-    background: linear-gradient(90deg, rgba(184,90,33,0), #b85a21, rgba(184,90,33,0));
+    background: #b85a21;
   }
   .divider svg { width: 9mm; height: 9mm; }
 
@@ -108,7 +104,6 @@
   .leaf {
     position: absolute;
     z-index: 0;
-    filter: drop-shadow(0 1.5mm 1.8mm rgba(60, 25, 5, .22));
   }
   .leaf svg { width: 100%; height: 100%; display: block; overflow: visible; }
 </style>
@@ -120,17 +115,17 @@
     <!-- Ahornblatt -->
     <symbol id="maple" viewBox="-50 -50 100 100">
       <path d="M0,-48 L7,-32 Q15,-36 22,-42 L19,-24 Q30,-28 40,-32 L31,-16 Q42,-14 48,-6 L30,-2 Q38,8 42,20 L22,12 Q26,26 22,38 L10,24 L4,34 L0,48 L-4,34 L-10,24 L-22,38 Q-26,26 -22,12 L-42,20 Q-38,8 -30,-2 L-48,-6 Q-42,-14 -31,-16 L-40,-32 Q-30,-28 -19,-24 L-22,-42 Q-15,-36 -7,-32 Z"/>
-      <path d="M0,46 L0,-40 M0,0 L-30,-20 M0,0 L30,-20 M0,0 L-36,8 M0,0 L36,8 M0,0 L-18,30 M0,0 L18,30" fill="none" stroke="rgba(60,20,5,.35)" stroke-width="1.6" stroke-linecap="round"/>
+      <path d="M0,46 L0,-40 M0,0 L-30,-20 M0,0 L30,-20 M0,0 L-36,8 M0,0 L36,8 M0,0 L-18,30 M0,0 L18,30" fill="none" stroke="#7a3a18" stroke-width="1.6" stroke-linecap="round"/>
     </symbol>
     <!-- Eichenblatt -->
     <symbol id="oak" viewBox="-30 -50 60 100">
       <path d="M0,-48 C8,-44 14,-40 12,-32 C20,-32 24,-26 18,-20 C26,-18 28,-10 20,-6 C28,-2 28,8 20,10 C26,14 24,24 16,24 C20,32 12,40 4,36 C4,42 2,46 0,50 C-2,46 -4,42 -4,36 C-12,40 -20,32 -16,24 C-24,24 -26,14 -20,10 C-28,8 -28,-2 -20,-6 C-28,-10 -26,-18 -18,-20 C-24,-26 -20,-32 -12,-32 C-14,-40 -8,-44 0,-48 Z"/>
-      <path d="M0,48 L0,-44 M0,-26 L12,-30 M0,-12 L18,-16 M0,2 L20,2 M0,16 L16,20 M0,-26 L-12,-30 M0,-12 L-18,-16 M0,2 L-20,2 M0,16 L-16,20" fill="none" stroke="rgba(60,20,5,.32)" stroke-width="1.5" stroke-linecap="round"/>
+      <path d="M0,48 L0,-44 M0,-26 L12,-30 M0,-12 L18,-16 M0,2 L20,2 M0,16 L16,20 M0,-26 L-12,-30 M0,-12 L-18,-16 M0,2 L-20,2 M0,16 L-16,20" fill="none" stroke="#7a3a18" stroke-width="1.5" stroke-linecap="round"/>
     </symbol>
     <!-- Birkenblatt / einfaches Blatt -->
     <symbol id="simple" viewBox="-30 -50 60 100">
       <path d="M0,-48 C26,-30 32,10 0,50 C-32,10 -26,-30 0,-48 Z"/>
-      <path d="M0,50 L0,-42 M0,-20 L14,-10 M0,-4 L18,8 M0,14 L12,24 M0,-20 L-14,-10 M0,-4 L-18,8 M0,14 L-12,24" fill="none" stroke="rgba(60,20,5,.32)" stroke-width="1.5" stroke-linecap="round"/>
+      <path d="M0,50 L0,-42 M0,-20 L14,-10 M0,-4 L18,8 M0,14 L12,24 M0,-20 L-14,-10 M0,-4 L-18,8 M0,14 L-12,24" fill="none" stroke="#7a3a18" stroke-width="1.5" stroke-linecap="round"/>
     </symbol>
     <!-- Eichel -->
     <symbol id="acorn" viewBox="-20 -30 40 60">
@@ -168,9 +163,9 @@
 <div class="leaf" style="left:30mm; bottom:22mm; width:11mm; height:19mm; transform:rotate(140deg)"><svg><use href="#simple" fill="#a9341a"/></svg></div>
 
 <!-- ein paar fallende Blätter in der Mitte -->
-<div class="leaf" style="left:178mm; top:112mm; width:9mm; height:15mm; transform:rotate(60deg); opacity:.85"><svg><use href="#simple" fill="#e9a23b"/></svg></div>
-<div class="leaf" style="left:24mm; top:128mm; width:8mm; height:14mm; transform:rotate(-50deg); opacity:.8"><svg><use href="#simple" fill="#c6391f"/></svg></div>
-<div class="leaf" style="left:176mm; top:150mm; width:8mm; height:13mm; transform:rotate(15deg); opacity:.8"><svg><use href="#simple" fill="#d9772a"/></svg></div>
+<div class="leaf" style="left:178mm; top:112mm; width:9mm; height:15mm; transform:rotate(60deg)"><svg><use href="#simple" fill="#e9a23b"/></svg></div>
+<div class="leaf" style="left:24mm; top:128mm; width:8mm; height:14mm; transform:rotate(-50deg)"><svg><use href="#simple" fill="#c6391f"/></svg></div>
+<div class="leaf" style="left:176mm; top:150mm; width:8mm; height:13mm; transform:rotate(15deg)"><svg><use href="#simple" fill="#d9772a"/></svg></div>
 
 <!-- zusätzliche Blätter an den seitlichen Rändern -->
 <div class="leaf" style="left:-3mm; top:128mm; width:26mm; height:26mm; transform:rotate(-95deg)"><svg><use href="#maple" fill="#d9772a"/></svg></div>
