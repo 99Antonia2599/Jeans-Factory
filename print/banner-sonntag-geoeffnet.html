@@ -14,14 +14,13 @@
   /* Beschnittzugabe pro Seite; wird beim Rendern gesetzt (0 oder z. B. 20mm) */
   :root { --bleed: 0mm; }
 
-  @page { size: calc(2000mm + 2 * var(--bleed)) calc(400mm + 2 * var(--bleed)); margin: 0; }
+  /* Seite 1 mm größer als der Inhalt (Rundungsschutz gegen eine zweite Seite); die MediaBox wird nachträglich exakt gesetzt */
+  @page { size: calc(2000mm + 2 * var(--bleed) + 1mm) calc(400mm + 2 * var(--bleed) + 1mm); margin: 0; }
   html, body { margin: 0; padding: 0; overflow: hidden; }
   html { background: #FFE500; }
   body {
-    /* 1 mm kleiner als die Seite, damit Rundungsfehler keine zweite Seite erzeugen;
-       die Seitenfarbe (html) füllt trotzdem das ganze Blatt */
-    width: calc(2000mm + 2 * var(--bleed) - 1mm);
-    height: calc(400mm + 2 * var(--bleed) - 1mm);
+    width: calc(2000mm + 2 * var(--bleed));
+    height: calc(400mm + 2 * var(--bleed));
     overflow: hidden;
     position: relative;
     background: #FFE500;
@@ -40,10 +39,10 @@
   .logo {
     position: absolute;
     top: 50%; transform: translateY(-50%);
-    width: 300mm;
+    width: 380mm;
   }
-  .logo.left  { left: 70mm; }
-  .logo.right { right: 70mm; }
+  .logo.left  { left: 55mm; }
+  .logo.right { right: 55mm; }
   .logo svg { width: 100%; height: auto; display: block; }
 
   .headline {
@@ -59,8 +58,9 @@
   }
 
   .bar {
+    /* läuft über die Beschnittzugabe hinaus bis zum Blattrand */
     position: absolute;
-    left: 0; right: 0; top: 335mm;
+    left: calc(-1 * var(--bleed)); right: calc(-1 * var(--bleed)); top: 335mm;
     height: 10mm;
     margin-top: -5mm;
     background: #E30613;
